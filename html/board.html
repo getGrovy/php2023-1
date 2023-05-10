@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>php 블로그 만들기</title>
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- script -->
+    <script defer src="assets/js/common.js"></script>
+</head>
+<body class="gray">
+        <div id="skip">
+            <a href="#header">헤더 영역 바로가기</a>
+            <a href="#main">컨텐츠 영역 바로가기</a>
+            <a href="#footer">컨텐츠 영역 바로가기</a>
+        </div> 
+
+        <header id="header">
+            <div class="header__inner container">
+                <div class="left">
+                    <a href="../index.html" class="star"><span class="blind">메인으로</span></a>
+                </div>
+                <h1 class="logo"><a href="main.html">DEVELOPER  Blog</a></h1>
+                <div class="right">
+                    <ul>
+                        <li><a href="join.html">회원가입</a></li>
+                    </ul>
+                </div>
+            </div>
+            <nav class="nav__inner">
+                <ul>
+                    <li><a href="join.html">회원가입</a></li>
+                    <li><a href="login.html">로그인</a></li>
+                    <li><a href="board.html">게시판</a></li>
+                    <li><a href="#">블로그</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- header -->
+        <main id="main">
+            <div class="intro__inner container bmStyle center">
+                <picture class="intro__images">
+                    <source srcset="assets/img/board01.png, assets/img/board01@2x.png 2x, assets/img/board01@3x.png 3x"/>
+                    <img src="assets/img/board01.png" alt="게시판이미지">
+                </picture>
+                <p class="intro__text">
+                    웹 디자이너, 웹 퍼블리셔, 프론트앤드 개발자를 위한 개시판입니다.<br>
+                    관련된 사항은 여기서 확인하세요!
+                </p>
+            </div>
+             
+            <div class="board__inner container bmStyle mt70">
+                <div class="board__search">
+                    <div class="search__tot mt40" > <p>*총 1111건의 게시물이 등록 되어 있습니다.</p></div>
+                    <div class="search__btn__inner">
+                        <form action="#" name="#" mmethod="post">
+                            <fieldset>
+                                <legend class="blind">검색영역</legend>
+                                <div>
+                                    <label for="inputSearchStyle" class="blind required">검색어</label>
+                                    <input type="text" id="searchText" name="searchText" class="inputSearchStyle" placeholder="검색어를 입력해 주세요." required>
+                                </div>
+                                <div><button type="submit" class="btnStyle4 mt20">검색 </button></div>
+                                <div><button type="submit" class="btnStyle4 mt20">제목 </button></div>
+                                <div><button type="submit" class="btnStyle3 mt20">등록일 </button></div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="mb70">
+                    <table class="board__table mt10" >
+                        <tr>
+                          <th class="table__th__1" >번호</td>
+                          <th class="table__th__2" >제목</td>
+                          <th class="table__th__3" >등록자</td>
+                          <th class="table__th__4" >등록일</td>
+                          <th class="table__th__5" >조회수</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td><a href="#">게시판제목영역입니다. 아직 제목이 없어요</a></td>
+                            <td>그루비</td>
+                            <td>230421</td>
+                            <td>100</td>
+                        </tr><tr>
+                            <td>2</td>
+                            <td><a href="#">게시판제목영역입니다. 아직 제목이 없어요</a></td>
+                            <td>그루비</td>
+                            <td>230421</td>
+                            <td>100</td>
+                        </tr><tr>
+                            <td>3</td>
+                            <td><a href="#">게시판제목영역입니다. 아직 제목이 없어요</a></td>
+                            <td>그루비</td>
+                            <td>230421</td>
+                            <td>100</td>
+                        </tr><tr>
+                            <td>4</td>
+                            <td><a href="#">게시판제목영역입니다. 아직 제목이 없어요</a></td>
+                            <td>그루비</td>
+                            <td>230421</td>
+                            <td>100</td>
+                        </tr><tr>
+                            <td>5</td>
+                            <td><a href="#">게시판제목영역입니다. 아직 제목이 없어요</a></td>
+                            <td>그루비</td>
+                            <td>230421</td>
+                            <td>100</td>
+                        </tr><tr>
+                            <td>6</td>
+                            <td><a href="#">게시판제목영역입니다. 아직 제목이 없어요</a></td>
+                            <td>그루비</td>
+                            <td>230421</td>
+                            <td>100</td>
+                        </tr><tr>
+                            <td>7</td>
+                            <td><a href="#">게시판제목영역입니다. 아직 제목이 없어요</a></td>
+                            <td>그루비</td>
+                            <td>230421</td>
+                            <td>100</td>
+                        </tr><tr>
+                            <td>8</td>
+                            <td><a href="#">게시판제목영역입니다. 아직 제목이 없어요</a></td>
+                            <td>그루비</td>
+                            <td>230421</td>
+                            <td>100</td>
+                        </tr><tr>
+                            <td>9</td>
+                            <td><a href="#">게시판제목영역입니다. 아직 제목이 없어요</a></td>
+                            <td>그루비</td>
+                            <td>230421</td>
+                            <td>100</td>
+                        </tr>
+                      </table>
+                </div>
+                <div class="board__nav mb70">
+                        <button>처음으로</button>
+                        <button>이전</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                        <button>7</button>
+                        <button>8</button>
+                        <button>다음</button>
+                        <button>마지막으로</button>
+                </div>
+            </div>
+            
+            <!-- <div class="banners__inner"></div>
+            <div class="sliders__inner"></div>
+            <div class="cards__inner"></div>
+            <div class="images__inner"></div>
+            <div class="ads__inner"></div>
+            <div class="texts__inner"></div>
+            <div class="login__inner"></div>
+            <div class="join__inner"></div>
+            <div class="blog__inner"></div> -->
+        </main>
+        <!-- main -->
+        <footer id="footer" class="mt20">
+            <div class="footer__inner">
+                <p>Copyright @ 2023 getgrovy</p>
+                <p>blog by getgrovy</p>
+            </div>
+        </footer>
+        <!-- footer -->
+</body>
+</html>
