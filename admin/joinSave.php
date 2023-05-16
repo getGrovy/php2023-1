@@ -43,7 +43,6 @@
                                     <label for="youName" class="required">이름</label>
                                     <input type="text" id="youName" name="youName" class="inputStyle" maxlength="5"  placeholder="이름을 적어주세요" required>
                                     <p class="msg" id="youNameComment"></p><!-- 이름은 한글로만 작성할 수 있습니다. -->
-                                    
                                 </div>
                                 <div class="over">
                                     <label for="youEmail" class="required">이메일</label>
@@ -54,7 +53,7 @@
                                 <div class="over">
                                     <label for="youNick" class="required">닉네임</label>
                                     <input type="text" id="youNick" name="youNick" class="inputStyle"  placeholder="닉네임을 적어주세요" required>
-                                    <a href="#a" class="youCheck btnStyle2">닉네임 중복검사</a>
+                                    <a href="#a" class="youCheck btnStyle2" onclick="nickChecking()">닉네임 중복검사</a>
                                     <p class="msg" id="youNickComment"></p> <!--닉네임이 존재합니다. -->
                                 </div>
                                 <div>
@@ -93,6 +92,7 @@
     <script>
 
         let isEmailCheck = false;
+        let isNickCheck = false;
 
         function emailChecking(){
             let youEmail = $("#youEmail").val();
@@ -121,7 +121,35 @@
                 })
             }
         }
-
+        function nickChecking(){
+            
+            let youNick = $("#youNick").val();
+            if(youNick == null || youNick == ''){
+                $("#youNickComment").text("* 닉네임을 입력해주세요");
+            }else {
+                $.ajax({
+                    type : "POST",
+                    url : "joinCheck.php",
+                    data : {"youNick" : youNick, "type" : "isNickCheck"},
+                    dataType : "json",
+                    success : function(data){
+                        if(data.result == "good"){
+                            $("#youNickComment").text("* 사용 가능한 닉네임 입니다");
+                            isNickCheck = true;
+                        }else {
+                            $("#youNickComment").text("* 이미 존재하는 닉네임 입니다");
+                            isNickCheck = false;
+                        }
+                    },
+                    error : function(request, status, error){
+                        console.log("request" + request);
+                        console.log("status" + status);
+                        console.log("error" + error);
+                    }
+                })
+            }
+        }
+        //  event.preventDefault() 
         function joinChecks(){
             // 이름 유효성 체크
             if($("#youName").val() == ''){
@@ -146,7 +174,8 @@
                 $("#youEmailComment").text(" * 이메일을 입력해 주세요");
                 return false;
             }
-            let getYouEmail = RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
+            let getYouEmail = RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([\-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i);
+            // let getYouEmail = RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
             if(!getYouEmail.test($("#youEmail").val())){
                 $("#youEmail").focus();
                 $("#youEmailComment").text(" * 이메일을 형식에 맞게 작성해줘");
@@ -211,9 +240,10 @@
                 $("#youBirthComment").text(" * 확인 생년월일을 입력해 주세요");
                 return false;
             }
-            let getYouBirth = RegExp(/^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])+$/);
+            // let getYouBirth = RegExp(/^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/);
+            let getYouBirth = RegExp(/^(19|20)[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/);
+            
             if(!getyouBirth.test($("#youBirth").val())){
-                alert("birth");
                 $("#youBirth").focus();
                 $("#youBirthComment").text(" * 생년월일이 정확하지 않습니다. (YYYY-MM-DD)");
                 $("#youBirth").val('');
@@ -226,7 +256,7 @@
                 $("#YouPhoneComment").text(" * 확인 연락처를 입력해 주세요");
                 return false;
             }
-            let getYouPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
+            let getYouPhone = RegExp(/^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/);
             if(!getYouPhone.test($("#YouPhone").val())){
                 alert("phone");
                 $("#YouPhone").focus();
@@ -234,6 +264,8 @@
                 $("#YouPhone").val('');
                 return false;
             }
+            return false;
+
         }   
     </script>
 </body>
