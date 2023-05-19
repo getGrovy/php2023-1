@@ -33,6 +33,8 @@
                     }
                     // 유효성검사
                     $sql = "SELECT memberId, youEmail, youPass, youName from members where youEmail = '$youEmail' and youPass = '$youPass'";
+                    $sql = "SELECT memberId, youEmail, youPass, youName from members where youEmail = '$youEmail' and youPass = '$youPass'";
+
                     $result = $connect ->query($sql);
 
                     if($result){
@@ -48,7 +50,7 @@
                             // echo "</pre>";
 
                             // 세션 생성
-                            $_SESSION['memberId'] = $memberInfo['memberId'];
+                            $_SESSION['memberID'] = $memberInfo['memberId'];
                             $_SESSION['youEmail'] = $memberInfo['youEmail'];
                             $_SESSION['youName'] = $memberInfo['youName'];
 

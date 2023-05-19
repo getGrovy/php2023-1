@@ -65,6 +65,36 @@
     padding: 0 4px 2px 4px;
     margin-top: -2px;
 }
+.blog__aside .cate ul{
+    margin: 10px 0;
+}
+.blog__aside .cate ul li{
+    position: relative;
+    padding-left: 20px;
+}
+.blog__aside .cate ul li::before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    position: absolute;
+    top: 9px;
+    left: 0;
+    transition: all 0.4s;
+}
+.blog__aside .cate ul li a{
+    line-height: 1.6;
+}
+.blog__aside .cate ul li:hover a{
+    text-decoration: underline;
+    text-underline-position: under;
+}
+.blog__aside .cate ul li:hover::before{
+    border-radius: 50%;
+    top: 6px;
+    width: 15px;
+    height: 15px;
+}
 /* aside end */
 
 /* blog write */
@@ -93,6 +123,14 @@
 .blog__write button{
     margin-top: 10px;
     float: right;
+}
+.blog__write select {
+    width: 300px;
+    height: 50px;
+    margin-bottom: 40px;
+    padding: 5px 20px;
+    border: 0;
+    border-radius: 5px;
 }
 .blog__title {
     background: url(../img/blog05-min.jpg) no-repeat ;
@@ -186,6 +224,18 @@
     width: 15%;
 }
 
+.cards__inner.row > .card{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.cards__inner.row > .card .card__img{
+    width: 30%;
+}
+.cards__inner.row > .card .card__title{
+    width: 65%;
+}
 
 .card__img img{
     filter: saturate(0%);
@@ -193,6 +243,32 @@
 }
 .card__img img:hover{
     filter: saturate(100%);
+}
+.card__img .more{
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+.card__img .more::before {
+    content: '';
+    position: absolute;
+    left: 150%;
+    top: 50%;
+    transform: translate(-50%,-50%) rotate(720deg);
+    width: 30px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z' fill='white'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: #000;
+    background-position: center center;
+    border-radius: 50%;
+    z-index: 10;
+    transition: left 0.6s , transform 0.9s;
+    pointer-events: none;
+}
+.card__img .more:hover:before {
+    transform: translate(-50%,-50%) rotate(0deg);
+    left: 50%;
 }
 
 .card__title h3{

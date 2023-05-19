@@ -1,15 +1,15 @@
+<?php
+    include "../connect/connect.php";
+    include "../connect/session.php";
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>php 블로그 만들기</title>
-    <!-- css -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- script -->
-    <script defer src="assets/js/common.js"></script>
-    <!-- Toast UI Editor -->
+    <title>블로그</title>
+    <?php include "../include/head.php" ?>
     <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
     <style>
         :not(.auto-height)>.toastui-editor-defaultUI>.toastui-editor-main {
@@ -18,47 +18,24 @@
     </style>
 </head>
 <body class="gray">
-        <div id="skip">
-            <a href="#header">헤더 영역 바로가기</a>
-            <a href="#main">컨텐츠 영역 바로가기</a>
-            <a href="#footer">컨텐츠 영역 바로가기</a>
-        </div> 
-
-        <header id="header">
-            <div class="header__inner container">
-                <div class="left">
-                    <a href="../index.html" class="star"><span class="blind">메인으로</span></a>
-                </div>
-                <h1 class="logo"><a href="main.html">DEVELOPER  Blog</a></h1>
-                <div class="right">
-                    <ul>
-                        <li><a href="join.html">회원가입</a></li>
-                    </ul>
-                </div>
-            </div>
-            <nav class="nav__inner">
-                <ul>
-                    <li><a href="join.html">회원가입</a></li>
-                    <li><a href="login.html">로그인</a></li>
-                    <li><a href="board2.html">게시판</a></li>
-                    <li><a href="#">블로그</a></li>
-                </ul>
-            </nav>
-        </header>
-        <!-- header -->
-        <main id="main" class="container">
+    
+    <?php include "../include/skip.php" ?>
+    <!-- skip -->
+    <?php include "../include/header.php" ?>
+    <!-- header -->
+    <main id="main" class="container">
             <div class="blog__search bmStyle">
                 <h2>개발자 블로그 게시글 작성</h2>
                 <p>개발과 관련된 글입니다.</p>
             </div>
             <div class="blog__inner">
                 <div class="blog__write">
-                    <form action="#" name="#" method="post">
+                    <form action="blogWriteSave.php" name="blogWriteSave" method="post" enctype="multipart/form-data">
                          <fieldset>
                              <legend class="blind">게시글작성하기</legend>
                              <div>
                                 <label for="blogCategory">카테고리</label>
-                                <select name="blogCategory" id="blogCategory">
+                                <select name="blogCategory" id="blogCategory" required>
                                     <option value="javascript">javascript</option>
                                     <option value="jquery">jquery</option>
                                     <option value="react">react</option>
@@ -68,12 +45,12 @@
                              </div>
                              <div>
                                  <label for="blogTitle">제목</label>
-                                 <input type="text" id="blogTitle" name="blogTitle" class="inputStyle">
+                                 <input type="text" id="blogTitle" name="blogTitle" class="inputStyle" required>
                              </div>
                              <div>
                                  <label for="blogContents">내용</label>
-                                 <!-- <textarea name="blogContents" id="blogContents"  class="inputStyle" rows="20"></textarea> -->
-                                 <div id="editor"></div>
+                                 <textarea name="blogContents" id="blogContents"  class="inputStyle" rows="20" required></textarea>
+                                 <!-- <div id="editor"></div> -->
                              </div>
                              <div class="mt30">
                                 <label for="blogFile">파일</label>
@@ -98,24 +75,19 @@
             <div class="blog__inner"></div> 
             -->
         </main>
-        <!-- main -->
-        <footer id="footer" >
-            <div class="footer__inner btStyle container mb100">
-                <div>Copyright @ 2023 getgrovy</div>
-                <div>blog by getgrovy</div>
-            </div>
-        </footer>
-        <!-- footer -->
-        <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-        <script>
-            const Editor = toastui.Editor;
+   
+    <?php include "../include/footer.php" ?>
+    <!-- header -->
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script>
+        const Editor = toastui.Editor;
 
-            const editor = new Editor({
-                el: document.querySelector('#editor'),
-                height: '1000px',
-                initialEditType: 'markdown',
-                previewStyle: 'vertical'
-                });
-        </script>
+        const editor = new Editor({
+            el: document.querySelector('#editor'),
+            height: '1000px',
+            initialEditType: 'markdown',
+            previewStyle: 'vertical'
+            });
+    </script>
 </body>
 </html>

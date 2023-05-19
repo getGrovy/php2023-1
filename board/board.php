@@ -90,7 +90,7 @@
     // 1~20 desc limit $viewNum 0 , 20   $viewNum*1 -$viewNum   page1
     //21~40 desc limit $viewNum 20 , 20  $viewNum*2 -$viewNum   page2
     //40~60 desc limit $viewNum 40 , 60  $viewNum*3 -$viewNum   page3
-    $sql = "SELECT b.boardId, b.boardTitle, m.youName , b.regtime , b.boardview from board b join members m on (b.memberid=m.memberid) order by boardid desc limit {$viewLimit},{$viewNum};";
+    $sql = "SELECT boardId, boardTitle, regtime, boardview from board order by boardid desc limit {$viewLimit},{$viewNum};";
     $result =$connect -> query($sql);
 
     if($result){
@@ -113,7 +113,6 @@
             echo "<tr><td colspan='4'>게시글이 없습니다.</td></tr>";
         }
     }
-    
 ?>
                         </tbody>
                     </table>
